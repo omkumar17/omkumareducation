@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { GraduationCap, Code2, Video, Users } from "lucide-react";
 import { useState } from "react";
 import { ImageSkeleton } from "@/components/ui/Skeleton";
+import Image from "next/image";
 
 const CARDS = [
   { icon: GraduationCap, label: "MCA Graduate" },
@@ -19,7 +20,8 @@ export default function About() {
     <section id="about" className="section-pad bg-white dark:bg-surface-dark">
       <div className="mx-auto max-w-7xl">
         <span className="eyebrow justify-center flex">
-          <span className="text-brand-blue">//</span> about-the-teacher.java
+          <span className="text-brand-blue">{"//"}</span>
+          {" "}about-the-teacher.java
         </span>
         <h2 className="mt-3 text-center font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl dark:text-white">
           Meet Your Teacher
@@ -35,13 +37,13 @@ export default function About() {
           >
             <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl shadow-soft">
               {!imgLoaded && <ImageSkeleton className="absolute inset-0" />}
-              <img
+              <Image
                 src="https://images.unsplash.com/photo-1610484826967-09c5720778c7?q=80&w=600&auto=format&fit=crop"
                 alt="Om Kumar teaching Computer Applications"
+                fill
+                className={`object-cover transition-opacity duration-500 ${imgLoaded ? "opacity-100" : "opacity-0"
+                  }`}
                 onLoad={() => setImgLoaded(true)}
-                className={`h-full w-full object-cover transition-opacity duration-500 ${
-                  imgLoaded ? "opacity-100" : "opacity-0"
-                }`}
               />
             </div>
             <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 rounded-xl bg-brand-indigo px-6 py-2 text-center shadow-soft">

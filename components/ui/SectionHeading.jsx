@@ -21,7 +21,9 @@ export default function SectionHeading({
       className={`max-w-2xl ${align === "center" ? "mx-auto text-center" : "text-left"} mb-12 sm:mb-16`}
     >
       <span className="eyebrow">
-        <span className="text-brand-blue">//</span> {commentTag}
+        <span className="text-brand-blue">{"//"}</span>
+        {" "}
+        {commentTag}
       </span>
       <h2 className="mt-3 font-display text-3xl sm:text-4xl font-bold tracking-tight text-ink dark:text-white">
         {title}

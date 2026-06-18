@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import { ImageSkeleton } from "@/components/ui/Skeleton";
+import Image from "next/image";
 
 const CHECKLIST = [
   { icon: BookOpenCheck, label: "Chapter-wise Notes" },
@@ -55,7 +56,8 @@ export default function Hero() {
           transition={{ duration: 0.6 }}
         >
           <span className="eyebrow">
-            <span className="text-brand-blue">//</span> om-kumar-education.init()
+            <span className="text-brand-blue">{'//'}</span>
+            {" "}om-kumar-education.init()
           </span>
 
           <h1 className="mt-4 font-display text-4xl font-extrabold leading-[1.1] tracking-tight text-ink sm:text-5xl lg:text-6xl dark:text-white">
@@ -152,13 +154,13 @@ export default function Hero() {
           >
             <div className="relative h-32 w-full overflow-hidden rounded-xl sm:h-40">
               {!imgLoaded && <ImageSkeleton className="absolute inset-0" />}
-              <img
+              <Image
                 src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=400&auto=format&fit=crop"
                 alt="Om Kumar, ICSE Computer Applications teacher"
+                fill
+                className={`object-cover transition-opacity duration-500 ${imgLoaded ? "opacity-100" : "opacity-0"
+                  }`}
                 onLoad={() => setImgLoaded(true)}
-                className={`h-full w-full object-cover transition-opacity duration-500 ${
-                  imgLoaded ? "opacity-100" : "opacity-0"
-                }`}
               />
             </div>
             <p className="mt-2 px-1 text-center font-display text-sm font-semibold text-ink dark:text-white">
