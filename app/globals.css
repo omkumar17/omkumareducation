@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-surface text-ink font-body antialiased;
+}
+
+.dark body {
+  @apply bg-surface-dark text-slate-200;
+}
+
+/* Code-comment style eyebrow used across every section to thread the
+   "Java / Computer Applications" subject through the whole page. */
+.eyebrow {
+  @apply font-mono text-xs sm:text-sm tracking-wide text-brand-indigo/80 inline-flex items-center gap-2;
+}
+
+.dark .eyebrow {
+  @apply text-brand-indigoLight/90;
+}
+
+.section-pad {
+  @apply px-6 sm:px-10 lg:px-20 py-20 sm:py-24;
+}
+
+.card {
+  @apply rounded-2xl border border-slate-200/70 bg-white shadow-softer;
+}
+
+.dark .card {
+  @apply border-white/10 bg-surface-darksubtle;
+}
+
+.btn-primary {
+  @apply inline-flex items-center justify-center gap-2 rounded-xl bg-brand-indigo px-6 py-3.5 text-sm sm:text-base font-semibold text-white shadow-soft transition-all hover:bg-indigo-700 hover:shadow-glow active:scale-[0.98];
+}
+
+.btn-secondary {
+  @apply inline-flex items-center justify-center gap-2 rounded-xl border border-brand-indigo/30 bg-white px-6 py-3.5 text-sm sm:text-base font-semibold text-brand-indigo transition-all hover:bg-brand-indigo/5 active:scale-[0.98];
+}
+
+.dark .btn-secondary {
+  @apply border-white/15 bg-transparent text-brand-indigoLight hover:bg-white/5;
+}
+
+/* Respect reduced motion preference across the whole site */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* visible keyboard focus ring everywhere */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #4338ca;
+  outline-offset: 2px;
+  border-radius: 6px;
+}
