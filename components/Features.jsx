@@ -34,7 +34,7 @@ const FEATURES = [
   },
   {
     icon: BookOpenCheck,
-    title: "Chapter-wise Notes",
+    title: "Dedicated Notes",
     description: "Organised, exam-ready notes for every topic in the syllabus.",
   },
   {

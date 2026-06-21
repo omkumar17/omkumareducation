@@ -13,10 +13,10 @@ import {
 import SectionHeading from "@/components/ui/SectionHeading";
 
 const RESOURCES = [
-  { icon: FileText, title: "Foundation Revision Notes" },
+  // { icon: FileText, title: "Foundation Revision Notes" },
   { icon: Code2, title: "Important Programs" },
-  { icon: Brackets, title: "Arrays Notes" },
-  { icon: Quote, title: "Strings Notes" },
+  // { icon: Brackets, title: "Arrays Notes" },
+  // { icon: Quote, title: "Strings Notes" },
   { icon: History, title: "Previous Year Questions" },
   { icon: Zap, title: "Quick Revision Sheets" },
 ];

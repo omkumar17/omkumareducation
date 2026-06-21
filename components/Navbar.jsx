@@ -1,15 +1,15 @@
 "use client";
-
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Terminal, Sun, Moon, MessageCircle } from "lucide-react";
+import { Menu, X, Terminal, Sun, Moon, MessageCircle, Rocket } from "lucide-react";
 import { useTheme } from "next-themes";
 
 const LINKS = [
   { label: "About", href: "#about" },
   { label: "Why Us", href: "#why-us" },
-  { label: "Topics", href: "#topics" },
-  { label: "Resources", href: "#resources" },
+  // { label: "Topics", href: "#topics" },
+  // { label: "Resources", href: "#resources" },
   { label: "Batch", href: "#batch" },
   { label: "FAQ", href: "#faq" },
   { label: "Contact", href: "#contact" },
@@ -29,17 +29,17 @@ export default function Navbar() {
   }, []);
 
   const handleNav = (href) => {
-    setOpen(false);
+    console.log("clicked", href);
     document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+    setOpen(false);
   };
 
   return (
     <header
-      className={`fixed top-0 z-50 w-full transition-all duration-300 ${
-        scrolled
-          ? "bg-white/80 shadow-softer backdrop-blur-md dark:bg-surface-dark/80"
-          : "bg-transparent"
-      }`}
+      className={`fixed top-0 z-50 w-full transition-all duration-300 ${scrolled
+        ? "bg-white/80 shadow-softer backdrop-blur-md dark:bg-surface-dark/80"
+        : "bg-transparent"
+        }`}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 sm:px-10 lg:px-20">
         <a
@@ -50,8 +50,15 @@ export default function Navbar() {
           }}
           className="flex items-center gap-2 font-display text-lg font-bold text-ink dark:text-white"
         >
-          <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-brand-indigo text-white">
-            <Terminal className="h-5 w-5" strokeWidth={2} />
+          <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-brand-indigo text-white overflow-hidden">
+            <Image
+              src="/img/faviconLogo.png"
+              alt="Om Kumar Education Logo"
+              width={36}
+              height={36}
+              className="object-contain"
+              priority
+            />
           </span>
           Om Kumar Education
         </a>
@@ -90,8 +97,8 @@ export default function Navbar() {
             }}
             className="btn-primary !px-5 !py-2.5 text-sm"
           >
-            <MessageCircle className="h-4 w-4" />
-            Join WhatsApp Community
+            <Rocket className="h-6 w-6" />
+            Register for free foundation Program
           </a>
         </div>
 
@@ -107,11 +114,12 @@ export default function Navbar() {
       <AnimatePresence>
         {open && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="overflow-hidden bg-white px-6 pb-6 lg:hidden dark:bg-surface-dark"
-          >
+            animate={{
+              opacity: open ? 1 : 0,
+              height: open ? "auto" : 0,
+            }}
+            transition={{ duration: 0.3 }}
+            className="overflow-hidden  px-6 pb-6 lg:hidden bg-white/80 shadow-softer backdrop-blur-md dark:bg-surface-dark/80">
             <div className="flex flex-col gap-4 pt-2">
               {LINKS.map((link) => (
                 <a
@@ -140,11 +148,11 @@ export default function Navbar() {
                   href="#register"
                   onClick={(e) => {
                     e.preventDefault();
-                    handleNav("#register");
+                    handleNav("#batch");
                   }}
                   className="btn-primary flex-1 text-sm"
                 >
-                  Join WhatsApp Community
+                  Register for free foundation Program
                 </a>
               </div>
             </div>

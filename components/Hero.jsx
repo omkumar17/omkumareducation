@@ -10,6 +10,7 @@ import {
   MessagesSquare,
   ClipboardCheck,
   PlayCircle,
+  BookOpen,
 } from "lucide-react";
 import { useState } from "react";
 import { ImageSkeleton } from "@/components/ui/Skeleton";
@@ -20,7 +21,7 @@ const CHECKLIST = [
   { icon: Video, label: "Live Classes" },
   { icon: MessagesSquare, label: "Doubt Solving" },
   { icon: ClipboardCheck, label: "Weekly Tests" },
-  { icon: PlayCircle, label: "Recordings" },
+  { icon: PlayCircle, label: "Missed class Recordings" },
 ];
 
 const CODE_LINES = [
@@ -67,7 +68,7 @@ export default function Hero() {
           </h1>
 
           <p className="mt-4 font-display text-lg font-semibold text-ink sm:text-xl dark:text-slate-200">
-            ICSE Class 9 &amp; 10 Computer Applications
+            ICSE Class 10 Computer Applications
           </p>
 
           <p className="mt-3 text-lg text-brand-indigo sm:text-xl dark:text-brand-indigoLight">
@@ -80,13 +81,13 @@ export default function Hero() {
           </p>
 
           <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-            <button onClick={() => handleNav("#register")} className="btn-primary">
-              <MessageCircle className="h-5 w-5" />
-              Join Free WhatsApp Community
+            <button onClick={() => handleNav("#batch")} className="btn-primary">
+              <BookOpen className="h-5 w-5" />
+              Explore our programs
             </button>
-            <button onClick={() => handleNav("#resources")} className="btn-secondary">
+            <button onClick={() => handleNav("#register")} className="btn-secondary">
               <FileDown className="h-5 w-5" />
-              Get Free Notes
+              Register for free Foundation Program
             </button>
           </div>
 
@@ -152,11 +153,12 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.7 }}
             className="absolute -bottom-10 -left-6 w-44 rounded-2xl border border-white bg-white p-2 shadow-soft sm:-left-10 sm:w-52 dark:border-white/10 dark:bg-surface-darksubtle"
           >
-            <div className="relative h-32 w-full overflow-hidden rounded-xl sm:h-40">
+            <div className="relative h-32 w-full overflow-hidden rounded-xl sm:h-40 ">
               {!imgLoaded && <ImageSkeleton className="absolute inset-0" />}
               <Image
-                src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=400&auto=format&fit=crop"
+                src="/img/smallImage.png"
                 alt="Om Kumar, ICSE Computer Applications teacher"
+                sizes="(max-width: 400px) 100vw, 200px"
                 fill
                 className={`object-cover transition-opacity duration-500 ${imgLoaded ? "opacity-100" : "opacity-0"
                   }`}

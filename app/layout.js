@@ -24,18 +24,21 @@ const jbmono = JetBrains_Mono({
 });
 
 export const metadata = {
-  metadataBase: new URL("https://omkumareducation.com"),
+  metadataBase: new URL("https://omkumareducation.vercel.app"),
   title: {
     default: "Om Kumar Education | ICSE Class 9 & 10 Computer Applications",
     template: "%s | Om Kumar Education",
+    
   },
+  icons:{
+      icon: "/img/faviconLogo.png",
+    },
   description:
-    "Learn ICSE Class 9 & 10 Computer Applications and Java programming the simple, exam-oriented way. Live classes, chapter-wise notes, weekly tests and doubt solving with Om Kumar. Join the free WhatsApp community.",
+    "Learn ICSE Class 10 Computer Applications and Java programming the simple, exam-oriented way. Live classes, chapter-wise notes, weekly tests and doubt solving with Om Kumar. Register Now.",
   keywords: [
     "ICSE Computer Applications",
     "ICSE Java programming",
     "ICSE Class 10 Computer Applications",
-    "ICSE Class 9 Computer Applications",
     "Om Kumar Education",
     "Java tuition online",
   ],
@@ -43,8 +46,8 @@ export const metadata = {
   openGraph: {
     title: "Om Kumar Education | ICSE Computer Applications",
     description:
-      "Learn Java programming in a simple, exam-oriented way for ICSE Class 9 & 10. Join the free WhatsApp community for notes, live classes and weekly tests.",
-    url: "https://omkumareducation.com",
+      "Learn Java programming in a simple, exam-oriented way for ICSE Class 10 with notes, live classes and weekly tests.",
+    url: "https://omkumareducation.vercel.app",
     siteName: "Om Kumar Education",
     locale: "en_IN",
     type: "website",

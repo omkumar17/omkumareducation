@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
+import BatchCard from "./BatchCard";
+
 import {
   Video,
   MessagesSquare,
@@ -9,66 +10,128 @@ import {
   PlayCircle,
   Users,
   Clock,
-  MessageCircle,
+
+  Hash,
+  GitBranch,
+  Repeat,
+  Trophy,
+  Brackets,
+  Quote,
+  Boxes,
+  FunctionSquare,
 } from "lucide-react";
 
-const ITEMS = [
-  { icon: Video, label: "Live Classes" },
-  { icon: MessagesSquare, label: "Doubt Solving" },
-  { icon: ClipboardCheck, label: "Weekly Tests" },
-  { icon: FileText, label: "PDF Notes" },
-  { icon: PlayCircle, label: "Recordings" },
-  { icon: Users, label: "Small Batch Size" },
-  { icon: Clock, label: "Timing Flexible" },
-];
-
-function handleNav(href) {
-  document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
-}
-
 export default function Batch() {
+  const FOUNDATION_ITEMS = [
+    { icon: Video, label: "Live Classes" },
+    { icon: MessagesSquare, label: "Doubt Solving" },
+    { icon: ClipboardCheck, label: "Foundation Test" },
+    { icon: FileText, label: "Foundation Notes" },
+    { icon: PlayCircle, label: "Limited Recordings" },
+    { icon: Users, label: "Small Batch Size" },
+    { icon: Clock, label: "4-Day Workshop" },
+  ];
+
+  const FOUNDATION_TOPICS = [
+    {
+      // icon: Hash,
+      title: "Java Basics",
+      description:
+        "Variables, data types, operators and input-output.",
+    },
+    {
+      // icon: GitBranch,
+      title: "Conditions",
+      description:
+        "if, if-else and switch-case.",
+    },
+    {
+      // icon: Repeat,
+      title: "Loops",
+      description:
+        "for, while and do-while loops.",
+    },
+    {
+      // icon: Trophy,
+      title: "Test & Doubts",
+      description:
+        "Foundation test and doubt-solving session.",
+    },
+  ];
+
+  const REGULAR_ITEMS = [
+    { icon: Video, label: "Live Classes" },
+    { icon: MessagesSquare, label: "Doubt Support" },
+    { icon: ClipboardCheck, label: "Weekly Tests" },
+    { icon: FileText, label: "PDF Notes" },
+    { icon: PlayCircle, label: "Recordings" },
+    { icon: Users, label: "Limited Batch Size" },
+  ];
+
+  const REGULAR_TOPICS = [
+    {
+      // icon: Hash,
+      title: "Wrapper Class",
+      description:
+        "Wrapper methods and type conversion.",
+    },
+    {
+      // icon: Brackets,
+      title: "Arrays",
+      description:
+        "1D & 2D arrays with board programs.",
+    },
+    {
+      // icon: Quote,
+      title: "Strings",
+      description:
+        "String methods and important questions.",
+    },
+    {
+      // icon: Boxes,
+      title: "Object-Oriented Programming",
+      description:
+        "Classes, objects and constructors.",
+    },
+    {
+      // icon: FunctionSquare,
+      title: "Methods",
+      description:
+        "User-defined functions and overloading.",
+    },
+    {
+      // icon: Trophy,
+      title: "Board Important Programs",
+      description:
+        "Exam-oriented questions and revision.",
+    },
+  ];
+
   return (
-    <section id="batch" className="section-pad bg-white dark:bg-surface-dark">
-      <div className="mx-auto max-w-5xl">
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.55 }}
-          className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-brand-indigo to-brand-blue p-8 text-center shadow-glow sm:p-14"
-        >
-          <div className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-white/10 blur-2xl" />
-          <div className="pointer-events-none absolute -bottom-20 -left-10 h-56 w-56 rounded-full bg-white/10 blur-2xl" />
+    <section
+      id="batch"
+      className="section-pad bg-white dark:bg-surface-dark"
+    >
+      <div className="mx-auto max-w-7xl space-y-16">
 
-          <span className="relative inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-1.5 font-mono text-xs font-medium text-white">
-            <span className="h-2 w-2 animate-pulse rounded-full bg-emerald-300" />
-            Admissions Open
-          </span>
+        <BatchCard
+          badge="Admissions Open"
+          title="ICSE Computer Applications Foundation Program"
+          subtitle="Free 4-Day Workshop • Class 9 Revision + Class 10 Preparation"
+          items={FOUNDATION_ITEMS}
+          topics={FOUNDATION_TOPICS}
+          buttonText="Reserve Your Free Spot"
+        />
 
-          <h2 className="relative mt-5 font-display text-2xl font-bold text-white sm:text-3xl">
-            ICSE Computer Applications Crash Course
-          </h2>
+        <BatchCard
+          badge="Starting August 2026"
+          title="ICSE Class 10 Computer Applications Mastery Batch"
+          subtitle="Complete Board-Oriented Preparation at an Affordable Price of ₹1000/month"
+          items={REGULAR_ITEMS}
+          topics={REGULAR_TOPICS}
+          buttonText="Enroll Now"
+        />
 
-          <div className="relative mt-9 flex flex-wrap items-center justify-center gap-3">
-            {ITEMS.map((item) => (
-              <span
-                key={item.label}
-                className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm text-white"
-              >
-                <item.icon className="h-4 w-4" />
-                {item.label}
-              </span>
-            ))}
-          </div>
-
-          <button
-            onClick={() => handleNav("#register")}
-            className="relative mt-10 inline-flex items-center justify-center gap-2 rounded-xl bg-white px-7 py-3.5 text-sm font-semibold text-brand-indigo shadow-soft transition-transform hover:scale-[1.03] sm:text-base"
-          >
-            <MessageCircle className="h-5 w-5" />
-            Join WhatsApp Community
-          </button>
-        </motion.div>
       </div>
     </section>
   );

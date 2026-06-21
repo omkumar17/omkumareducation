@@ -10,14 +10,15 @@ import {
   Award,
   ArrowRight,
   ArrowDown,
+  Notebook,
 } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
 
 const STEPS = [
-  { icon: Instagram, label: "Instagram" },
-  { icon: FileText, label: "Free Notes" },
-  { icon: MessageCircle, label: "WhatsApp Community" },
+  { icon: Notebook, label: "Register" },
   { icon: Presentation, label: "Free Workshop" },
+  { icon: FileText, label: "Free Notes" },
+  // { icon: MessageCircle, label: "WhatsApp Community" },
   { icon: Video, label: "Live Classes" },
   { icon: Award, label: "Board Preparation" },
 ];

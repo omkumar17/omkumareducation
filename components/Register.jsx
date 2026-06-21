@@ -5,12 +5,23 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { motion } from "framer-motion";
 import toast from "react-hot-toast";
-import { Loader2, MessageCircle, User, School, MapPin, Phone, Mail } from "lucide-react";
+import {
+  Loader2,
+  MessageCircle,
+  User,
+  School,
+  MapPin,
+  Phone,
+  Mail,
+  Pencil,
+  UserPlus,
+} from "lucide-react";
 import { registrationSchema } from "@/lib/validation";
 import SectionHeading from "@/components/ui/SectionHeading";
 
 const WHATSAPP_GROUP_LINK =
-  process.env.NEXT_PUBLIC_WHATSAPP_LINK || "https://chat.whatsapp.com/your-invite-link";
+  process.env.NEXT_PUBLIC_WHATSAPP_LINK ||
+  "https://chat.whatsapp.com/your-invite-link";
 
 const FIELDS = [
   {
@@ -30,7 +41,7 @@ const FIELDS = [
   {
     name: "city",
     label: "City",
-    placeholder: "e.g. Patna",
+    placeholder: "e.g. Jamshedpur",
     icon: MapPin,
     type: "text",
   },
@@ -43,14 +54,14 @@ const FIELDS = [
   },
   {
     name: "parentWhatsapp",
-    label: "Parent WhatsApp Number",
+    label: "Parent WhatsApp Number (optional)",
     placeholder: "10-digit number",
     icon: Phone,
     type: "tel",
   },
   {
     name: "email",
-    label: "Email ",
+    label: "Email (optional)",
     placeholder: "e.g. student@example.com",
     icon: Mail,
     type: "email",
@@ -69,7 +80,8 @@ export default function Register() {
     resolver: zodResolver(registrationSchema),
     defaultValues: {
       studentName: "",
-      className: "",
+      batch: "",
+      className: "10",
       schoolName: "",
       city: "",
       studentWhatsapp: "",
@@ -78,84 +90,126 @@ export default function Register() {
     },
   });
 
-
   const onSubmit = async (data) => {
     setSubmitting(true);
+
     try {
       const res = await fetch("/api/register", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify(data),
       });
+
       const result = await res.json();
 
       if (!res.ok || !result.success) {
-        toast.error(result.message || "Something went wrong. Please try again.");
+        toast.error(result.message || "Something went wrong.");
         setSubmitting(false);
         return;
       }
 
-      // Requested success flow
       toast.success("Registration Successful");
+      setSubmitting(false);
       reset();
-      setTimeout(() => {
-        window.location.href = WHATSAPP_GROUP_LINK;
-      }, 1000);
 
-    } catch (error) {
-      toast.error("Network error. Please check your connection and try again.");
+
+    } catch (err) {
+      toast.error("Network error. Please try again.");
       setSubmitting(false);
     }
   };
 
   return (
-    <section id="register" className="section-pad bg-white dark:bg-surface-dark">
+    <section
+      id="register"
+      className="section-pad bg-white dark:bg-surface-dark"
+    >
       <div className="mx-auto max-w-3xl">
         <SectionHeading
-          commentTag="join-community.submit()"
-          title="Join Free Community"
-          subtitle="Fill in your details and get instant access to the free WhatsApp community."
+          commentTag="join-our-program.submit()"
+          title="Join Our Programs"
+          subtitle="Register for our ICSE Computer Applications programs and stay updated with classes, notes and announcements."
         />
 
         <motion.form
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
+          viewport={{ once: true }}
           transition={{ duration: 0.5 }}
           onSubmit={handleSubmit(onSubmit)}
           className="card grid gap-5 p-6 sm:grid-cols-2 sm:p-10"
         >
-          {FIELDS.slice(0, 1).map((field) => (
-            <div key={field.name} className="sm:col-span-2">
-              <FormField field={field} register={register} error={errors[field.name]} />
-            </div>
-          ))}
+          {/* Student Name */}
+          <div className="sm:col-span-2">
+            <FormField
+              field={FIELDS[0]}
+              register={register}
+              error={errors.studentName}
+            />
+          </div>
 
+          {/* Batch */}
+          <div>
+            <label className="mb-1.5 block text-sm font-medium text-ink dark:text-slate-300">
+              Batch
+            </label>
+
+            <select
+              {...register("batch")}
+              defaultValue=""
+              className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-ink outline-none focus:border-brand-indigo dark:border-white/10 dark:bg-surface-darksubtle dark:text-white"
+            >
+              <option value="" disabled>
+                Select batch
+              </option>
+              <option value="free">
+                Foundation Program (Free)
+              </option>
+              <option value="paid">
+                Computer Applications Mastery (Paid)
+              </option>
+            </select>
+
+            {errors.batch && (
+              <p className="mt-1.5 text-xs text-red-500">
+                {errors.batch.message}
+              </p>
+            )}
+          </div>
+
+          {/* Class */}
           <div>
             <label className="mb-1.5 block text-sm font-medium text-ink dark:text-slate-300">
               Class
             </label>
+
             <select
               {...register("className")}
-              className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-ink outline-none transition-colors focus:border-brand-indigo dark:border-white/10 dark:bg-surface-darksubtle dark:text-white"
-              defaultValue=""
+              className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-ink outline-none focus:border-brand-indigo dark:border-white/10 dark:bg-surface-darksubtle dark:text-white"
             >
-              <option value="" disabled>
-                Select class
-              </option>
-              <option value="Class 9">Class 9</option>
-              <option value="Class 10">Class 10</option>
+              <option value="10">Class 10</option>
             </select>
+
             {errors.className && (
-              <p className="mt-1.5 text-xs text-red-500">{errors.className.message}</p>
+              <p className="mt-1.5 text-xs text-red-500">
+                {errors.className.message}
+              </p>
             )}
           </div>
 
-
+          {/* Remaining fields */}
           {FIELDS.slice(1).map((field) => (
-            <FormField key={field.name} field={field} register={register} error={errors[field.name]} />
+            <FormField
+              key={field.name}
+              field={field}
+              register={register}
+              error={errors[field.name]}
+            />
           ))}
 
+          {/* Submit */}
           <div className="sm:col-span-2">
             <button
               type="submit"
@@ -163,15 +217,21 @@ export default function Register() {
               className="btn-primary w-full"
             >
               {submitting ? (
-                <Loader2 className="h-5 w-5 animate-spin" />
+                <>
+                  <Loader2 className="h-5 w-5 animate-spin" />
+                  Joining...
+                </>
               ) : (
-                <MessageCircle className="h-5 w-5" />
+                <>
+                  <UserPlus className="h-5 w-5" />
+                  Reserve your spot
+                </>
               )}
-              {submitting ? "Joining..." : "Join Community"}
             </button>
+
             <p className="mt-3 text-center text-xs text-ink-soft dark:text-slate-500">
-              We respect your privacy. Your details are only used to add you
-              to the learning community.
+              We respect your privacy. Your details are only used to add you to
+              our programs.
             </p>
           </div>
         </motion.form>
@@ -182,13 +242,16 @@ export default function Register() {
 
 function FormField({ field, register, error }) {
   const Icon = field.icon;
+
   return (
     <div>
       <label className="mb-1.5 block text-sm font-medium text-ink dark:text-slate-300">
         {field.label}
       </label>
+
       <div className="relative">
         <Icon className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-ink-faint" />
+
         <input
           type={field.type}
           placeholder={field.placeholder}
@@ -196,7 +259,10 @@ function FormField({ field, register, error }) {
           className="w-full rounded-xl border border-slate-200 bg-white py-3 pl-10 pr-4 text-sm text-ink outline-none transition-colors focus:border-brand-indigo dark:border-white/10 dark:bg-surface-darksubtle dark:text-white"
         />
       </div>
-      {error && <p className="mt-1.5 text-xs text-red-500">{error.message}</p>}
+
+      {error && (
+        <p className="mt-1.5 text-xs text-red-500">{error.message}</p>
+      )}
     </div>
   );
 }

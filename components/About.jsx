@@ -1,16 +1,17 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { GraduationCap, Code2, Video, Users } from "lucide-react";
+import { GraduationCap, Code2, Video, Users, Trophy, School } from "lucide-react";
 import { useState } from "react";
 import { ImageSkeleton } from "@/components/ui/Skeleton";
 import Image from "next/image";
 
 const CARDS = [
   { icon: GraduationCap, label: "MCA Graduate" },
-  { icon: Code2, label: "Java Educator" },
-  { icon: Video, label: "Live Classes" },
-  { icon: Users, label: "Student Support" },
+  { icon: Trophy, label: "Scored 99/100 in Computer Applications in class 10 and 12" },
+  { icon: School, label: "3+ years of Teaching Experience" },
+  { icon: Code2, label: "8+ years of Coding Experience" },
+  // { icon: Users, label: "Teacher" },
 ];
 
 export default function About() {
@@ -19,13 +20,15 @@ export default function About() {
   return (
     <section id="about" className="section-pad bg-white dark:bg-surface-dark">
       <div className="mx-auto max-w-7xl">
+        <div className="mx-auto text-center max-w-7xl">
         <span className="eyebrow justify-center flex">
-          <span className="text-brand-blue">{"//"}</span>
+          <span className="text-brand-blue text-center">{"//"}</span>
           {" "}about-the-teacher.java
         </span>
         <h2 className="mt-3 text-center font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl dark:text-white">
           Meet Your Teacher
         </h2>
+        </div>
 
         <div className="mt-12 grid items-center gap-12 lg:grid-cols-2">
           <motion.div
@@ -35,13 +38,14 @@ export default function About() {
             transition={{ duration: 0.55 }}
             className="relative mx-auto w-full max-w-sm"
           >
-            <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl shadow-soft">
+            <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl shadow-soft border-2 border-slate-800 dark:border-slate-200">
               {!imgLoaded && <ImageSkeleton className="absolute inset-0" />}
               <Image
-                src="https://images.unsplash.com/photo-1610484826967-09c5720778c7?q=80&w=600&auto=format&fit=crop"
+                src="/img/largeImage3.png"
                 alt="Om Kumar teaching Computer Applications"
+                sizes="(max-width: 768px) 100vw, 50vw"
                 fill
-                className={`object-cover transition-opacity duration-500 ${imgLoaded ? "opacity-100" : "opacity-0"
+                className={`object-fit transition-opacity duration-500  ${imgLoaded ? "opacity-100" : "opacity-0"
                   }`}
                 onLoad={() => setImgLoaded(true)}
               />

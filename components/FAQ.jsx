@@ -8,7 +8,7 @@ import SectionHeading from "@/components/ui/SectionHeading";
 const FAQS = [
   {
     q: "Who can join?",
-    a: "Any ICSE Class 9 or Class 10 student who wants to learn Computer Applications and Java programming in a simple, exam-oriented way can join.",
+    a: "Any ICSE Class 10 student who wants to learn Computer Applications and Java programming in a simple, exam-oriented way can join.",
   },
   {
     q: "Are classes live?",
@@ -16,19 +16,18 @@ const FAQS = [
   },
   {
     q: "Will notes be provided?",
-    a: "Yes, chapter-wise notes and quick revision sheets are provided for every topic covered in class.",
+    a: "Yes, notes and quick revision sheets will be provided.",
   },
   {
     q: "Can I ask doubts?",
-    a: "Absolutely. You can ask doubts during live classes or anytime in the WhatsApp community.",
+    a: "Absolutely. You can ask doubts during live classes or anytime in the WhatsApp.",
   },
   {
     q: "Will recordings be available?",
-    a: "Yes, recordings of every live class are shared so you can revise at your own pace.",
-  },
+    a: "Yes. Recordings are provided for missed classes and revision purposes. However, attending live classes is strongly recommended, as students benefit from real-time interaction and doubt solving.",  },
   {
     q: "How do I join the batch?",
-    a: "Simply join the free WhatsApp community using the button on this page, and you'll get all batch details and next steps there.",
+    a: "Simply fill the details in register section and click on Reserve your spot , and you'll be registered for the available batch you select.",
   },
 ];
 

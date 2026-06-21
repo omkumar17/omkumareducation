@@ -8,12 +8,12 @@ const CHANNELS = [
   {
     icon: Instagram,
     label: "Instagram",
-    href: "https://instagram.com/omkumar.education",
+    href: "https://instagram.com/omkumareducation",
   },
   {
     icon: Youtube,
     label: "YouTube",
-    href: "https://youtube.com/@omkumar.education",
+    href: "https://youtube.com/@omkumareducation",
   },
   {
     icon: MessageCircle,

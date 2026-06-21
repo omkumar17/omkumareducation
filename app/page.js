@@ -18,9 +18,9 @@ export default function Home() {
       <Hero />
       <About />
       <Features />
-      <Topics />
-      <Resources />
       <Batch />
+      {/* <Topics /> */}
+      {/* <Resources /> */}
       <Journey />
       <Register />
       <FAQ />
