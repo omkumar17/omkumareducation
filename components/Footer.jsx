@@ -6,7 +6,15 @@ export default function Footer() {
       <div className="mx-auto flex max-w-7xl flex-col items-center gap-4 text-center">
         <div className="flex items-center gap-2 font-display text-lg font-bold text-ink dark:text-white">
           <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-brand-indigo text-white">
-            <Terminal className="h-4 w-4" />
+            {/* <Terminal className="h-4 w-4" /> */}
+            <Image
+              src="/img/faviconLogo.png"
+              alt="Om Kumar Education Logo"
+              width={24}
+              height={24}
+              className="object-contain"
+              priority
+            />
           </span>
           Om Kumar Education
         </div>
