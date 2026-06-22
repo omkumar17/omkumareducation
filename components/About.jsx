@@ -7,7 +7,7 @@ import { ImageSkeleton } from "@/components/ui/Skeleton";
 import Image from "next/image";
 
 const CARDS = [
-  { icon: GraduationCap, label: "MCA Graduate" },
+  { icon: GraduationCap, label: "MCA Graduate and Coding Mentor" },
   { icon: Trophy, label: "Scored 99/100 in Computer Applications in class 10 and 12" },
   { icon: School, label: "3+ years of Teaching Experience" },
   { icon: Code2, label: "8+ years of Coding Experience" },
@@ -63,7 +63,7 @@ export default function About() {
           >
             <p className="text-base leading-relaxed text-ink-soft sm:text-lg dark:text-slate-400">
               I am an MCA graduate and Computer educator passionate about
-              helping ICSE Class 9 and 10 students learn Java programming in a
+              helping ICSE Class 10 students learn Java programming in a
               simple and practical way.
             </p>
             <p className="mt-4 text-base leading-relaxed text-ink-soft sm:text-lg dark:text-slate-400">

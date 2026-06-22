@@ -60,11 +60,11 @@ export default function Batch() {
   ];
 
   const REGULAR_ITEMS = [
-    { icon: Video, label: "Live Classes" },
+    { icon: Video, label: "3 Live Classes every Week" },
     { icon: MessagesSquare, label: "Doubt Support" },
     { icon: ClipboardCheck, label: "Weekly Tests" },
     { icon: FileText, label: "PDF Notes" },
-    { icon: PlayCircle, label: "Recordings" },
+    { icon: PlayCircle, label: "Class Recordings" },
     { icon: Users, label: "Limited Batch Size" },
   ];
 
