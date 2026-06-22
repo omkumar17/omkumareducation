@@ -18,7 +18,7 @@ const CHANNELS = [
   {
     icon: MessageCircle,
     label: "WhatsApp",
-    href: "#register",
+    href: "https://wa.me/918580250157?text=Hello%20Sir,%20I%20am%20interested%20in%20your%20ICSE%20Computer%20Applications%20program.",
   },
   {
     icon: Mail,
