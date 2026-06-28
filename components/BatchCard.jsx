@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Rocket } from "lucide-react";
 import TopicGrid from "./TopicGrid";
+import { IndianRupee } from "lucide-react";
 
 function handleNav(href) {
   document.querySelector(href)?.scrollIntoView({
@@ -14,6 +15,8 @@ export default function BatchCard({
   badge,
   title,
   subtitle,
+  actualPrice,
+  currentPrice,
   items,
   topics,
   buttonText,
@@ -39,6 +42,22 @@ export default function BatchCard({
       </h2>
 
       <p className="mt-3 text-white/80">{subtitle}</p>
+      <p className="mt-3 text-3xl flex items-center  justify-center gap-5 text-white/80">
+        <span>Course Price:</span>
+        <span className="flex items-center line-through  text-white/60">
+          {actualPrice && (
+            <>
+              <IndianRupee className="w-4 h-4" />
+              {actualPrice}
+            </>
+          )}
+        </span>
+
+        <span className="flex items-center font-semibold text-green-400">
+          <IndianRupee className="w-4 h-4" />
+          {currentPrice}
+        </span>
+      </p>
 
       <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
         {items.map((item) => (

@@ -19,6 +19,7 @@ import {
   Quote,
   Boxes,
   FunctionSquare,
+  IndianRupee,
 } from "lucide-react";
 
 export default function Batch() {
@@ -29,7 +30,9 @@ export default function Batch() {
     { icon: FileText, label: "Foundation Notes" },
     { icon: PlayCircle, label: "Limited Recordings" },
     { icon: Users, label: "Small Batch Size" },
-    { icon: Clock, label: "4-Day Workshop" },
+    { icon: Clock, label: "7-Day Workshop" },
+    // { icon: IndianRupee, label: "Actual Price" },
+    // { icon: IndianRupee, label: "Current Price" },
   ];
 
   const FOUNDATION_TOPICS = [
@@ -117,7 +120,9 @@ export default function Batch() {
         <BatchCard
           badge="Admissions Open"
           title="ICSE Computer Applications Foundation Program"
-          subtitle="Free 4-Day Workshop • Class 9 Revision + Class 10 Preparation"
+          subtitle="Free 7-Day Workshop • Class 9 Revision + Class 10 Preparation"
+          actualPrice="900"
+          currentPrice="0"
           items={FOUNDATION_ITEMS}
           topics={FOUNDATION_TOPICS}
           buttonText="Reserve Your Free Spot"
@@ -126,7 +131,9 @@ export default function Batch() {
         <BatchCard
           badge="Starting August 2026"
           title="ICSE Class 10 Computer Applications Mastery Batch"
-          subtitle="Complete Board-Oriented Preparation at an Affordable Price of ₹1000/month"
+          subtitle="Complete Board-Oriented Preparation at an Affordable Price"
+          actualPrice=""
+          currentPrice="1000"
           items={REGULAR_ITEMS}
           topics={REGULAR_TOPICS}
           buttonText="Enroll Now"
