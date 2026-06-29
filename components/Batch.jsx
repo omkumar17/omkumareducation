@@ -123,6 +123,7 @@ export default function Batch() {
           subtitle="Free 7-Day Workshop • Class 9 Revision + Class 10 Preparation"
           actualPrice="900"
           currentPrice="0"
+          type=""
           items={FOUNDATION_ITEMS}
           topics={FOUNDATION_TOPICS}
           buttonText="Reserve Your Free Spot"
@@ -134,6 +135,7 @@ export default function Batch() {
           subtitle="Complete Board-Oriented Preparation at an Affordable Price"
           actualPrice=""
           currentPrice="1000"
+          type="per month"
           items={REGULAR_ITEMS}
           topics={REGULAR_TOPICS}
           buttonText="Enroll Now"
