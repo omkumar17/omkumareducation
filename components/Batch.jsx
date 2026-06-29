@@ -30,7 +30,7 @@ export default function Batch() {
     { icon: FileText, label: "Foundation Notes" },
     { icon: PlayCircle, label: "Limited Recordings" },
     { icon: Users, label: "Small Batch Size" },
-    { icon: Clock, label: "7-Day Workshop" },
+    { icon: Clock, label: "7 live Classes" },
     // { icon: IndianRupee, label: "Actual Price" },
     // { icon: IndianRupee, label: "Current Price" },
   ];
@@ -50,9 +50,9 @@ export default function Batch() {
     },
     {
       // icon: Repeat,
-      title: "Loops",
+      title: "Loops & Nested Loops",
       description:
-        "for, while and do-while loops.",
+        "for, while, do-while loops, series and patterns.",
     },
     {
       // icon: Trophy,
@@ -120,7 +120,7 @@ export default function Batch() {
         <BatchCard
           badge="Admissions Open"
           title="ICSE Computer Applications Foundation Program"
-          subtitle="Free 7-Day Workshop • Class 9 Revision + Class 10 Preparation"
+          subtitle="Free Workshop • Class 9 Revision + Class 10 Preparation"
           actualPrice="900"
           currentPrice="0"
           type=""
