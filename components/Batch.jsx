@@ -131,7 +131,7 @@ export default function Batch() {
 
         <BatchCard
           badge="Starting August 2026"
-          title="ICSE Class 10 Computer Applications Mastery Batch"
+          title="ICSE Class 10 Computer Applications Mastery Program"
           subtitle="Complete Board-Oriented Preparation at an Affordable Price"
           actualPrice=""
           currentPrice="1000"
