@@ -229,7 +229,7 @@ export default function Register() {
               {submitting ? (
                 <>
                   <Loader2 className="h-5 w-5 animate-spin" />
-                  Joining...
+                  Please Wait...
                 </>
               ) : (
                 <>
