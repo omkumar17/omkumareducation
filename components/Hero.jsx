@@ -87,7 +87,7 @@ export default function Hero() {
             </button>
             <button onClick={() => handleNav("#register")} className="btn-secondary">
               <FileDown className="h-5 w-5" />
-              Register for free Foundation Program
+              Register for Mastery Program
             </button>
           </div>
 

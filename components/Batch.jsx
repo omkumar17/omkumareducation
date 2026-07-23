@@ -117,7 +117,7 @@ export default function Batch() {
     >
       <div className="mx-auto max-w-7xl space-y-16">
 
-        <BatchCard
+        {/* <BatchCard
           badge="Admissions Open"
           title="ICSE Computer Applications Foundation Program"
           subtitle="Free Workshop • Class 9 Revision + Class 10 Preparation"
@@ -127,14 +127,14 @@ export default function Batch() {
           items={FOUNDATION_ITEMS}
           topics={FOUNDATION_TOPICS}
           buttonText="Reserve Your Free Spot"
-        />
+        /> */}
 
         <BatchCard
           badge="Starting August 2026"
           title="ICSE Class 10 Computer Applications Mastery Program"
           subtitle="Complete Board-Oriented Preparation at an Affordable Price"
-          actualPrice=""
-          currentPrice="1000"
+          actualPrice="1000"
+          currentPrice="700"
           type="per month"
           items={REGULAR_ITEMS}
           topics={REGULAR_TOPICS}

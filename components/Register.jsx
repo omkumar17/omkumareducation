@@ -61,7 +61,7 @@ const FIELDS = [
   },
   {
     name: "email",
-    label: "Email (optional)",
+    label: "Email (recommended for Notes & Class Recordings)",
     placeholder: "e.g. student@example.com",
     icon: Mail,
     type: "email",
@@ -80,7 +80,7 @@ export default function Register() {
     resolver: zodResolver(registrationSchema),
     defaultValues: {
       studentName: "",
-      batch: "",
+      batch: "paid",
       className: "10",
       schoolName: "",
       city: "",
@@ -113,6 +113,16 @@ export default function Register() {
       toast.success("Registration Successful");
       setSubmitting(false);
       reset();
+
+      setTimeout(() => {
+        const phoneNumber = "918580250157";
+
+        const message = encodeURIComponent(
+          "Hello! I have successfully registered for the course."
+        );
+
+        window.location.href = `https://wa.me/918580250157?text=Hello%20Sir,%20I%20am%20${data.studentName}.%20I%20have%20registered%20for%20your%20ICSE%20Computer%20Applications%20Mastery%20program.`;
+      }, 1500);
 
 
     } catch (err) {
@@ -161,12 +171,12 @@ export default function Register() {
               defaultValue=""
               className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-ink outline-none focus:border-brand-indigo dark:border-white/10 dark:bg-surface-darksubtle dark:text-white"
             >
-              <option value="" disabled>
+              {/* <option value="" disabled>
                 Select batch
-              </option>
-              <option value="free">
+              </option> */}
+              {/* <option value="free">
                 Foundation Program (Free)
-              </option>
+              </option> */}
               <option value="paid">
                 Computer Applications Mastery (Paid)
               </option>

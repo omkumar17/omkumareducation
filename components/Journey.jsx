@@ -16,10 +16,10 @@ import SectionHeading from "@/components/ui/SectionHeading";
 
 const STEPS = [
   { icon: Notebook, label: "Register" },
-  { icon: Presentation, label: "Free Workshop" },
-  { icon: FileText, label: "Free Notes" },
+  { icon: Presentation, label: "3 days/week Workshop" },
   // { icon: MessageCircle, label: "WhatsApp Community" },
   { icon: Video, label: "Live Classes" },
+  { icon: FileText, label: "Notes" },
   { icon: Award, label: "Board Preparation" },
 ];
 

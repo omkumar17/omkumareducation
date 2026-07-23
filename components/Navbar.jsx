@@ -98,7 +98,7 @@ export default function Navbar() {
             className="btn-primary !px-5 !py-2.5 text-sm"
           >
             <Rocket className="h-6 w-6" />
-            Register for free foundation Program
+            Register for Mastery Program
           </a>
         </div>
 
