@@ -138,7 +138,7 @@ export default function Batch() {
           type="per month"
           items={REGULAR_ITEMS}
           topics={REGULAR_TOPICS}
-          buttonText="Enroll Now"
+          buttonText="Get More Details"
         />
 
       </div>

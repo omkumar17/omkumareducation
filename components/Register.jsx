@@ -61,7 +61,7 @@ const FIELDS = [
   },
   {
     name: "email",
-    label: "Email (recommended for Notes & Class Recordings)",
+    label: "Email (recommended for updates)",
     placeholder: "e.g. student@example.com",
     icon: Mail,
     type: "email",
@@ -110,7 +110,7 @@ export default function Register() {
         return;
       }
 
-      toast.success("Registration Successful");
+      toast.success("Thank you for your interest! We will get in touch with you shortly.");
       setSubmitting(false);
       reset();
 
@@ -121,8 +121,8 @@ export default function Register() {
           "Hello! I have successfully registered for the course."
         );
 
-        window.location.href = `https://wa.me/918580250157?text=Hello%20Sir,%20I%20am%20${data.studentName}.%20I%20have%20registered%20for%20your%20ICSE%20Computer%20Applications%20Mastery%20program.`;
-      }, 1500);
+        window.location.href = `https://wa.me/918580250157?text=Hello%20Sir,%20I%20am%20${data.studentName}.%20I%20am%20interested%20in%20your%20ICSE%20Computer%20Applications%20program.`;
+      }, 1000);
 
 
     } catch (err) {
@@ -138,9 +138,9 @@ export default function Register() {
     >
       <div className="mx-auto max-w-3xl">
         <SectionHeading
-          commentTag="join-our-program.submit()"
-          title="Join Our Programs"
-          subtitle="Register for our ICSE Computer Applications programs and stay updated with classes, notes and announcements."
+          commentTag="know-our-program.submit()"
+          title="Know More About Our Programs"
+          subtitle="Want to know more about our program? Fill out the form, and we'll reach out to you shortly."
         />
 
         <motion.form
@@ -234,13 +234,13 @@ export default function Register() {
               ) : (
                 <>
                   <UserPlus className="h-5 w-5" />
-                  Reserve your spot
+                  Register Your Interest
                 </>
               )}
             </button>
 
             <p className="mt-3 text-center text-xs text-ink-soft dark:text-slate-500">
-              We respect your privacy. Your details are only used to add you to
+              We respect your privacy. Your details are only used to know and add you to
               our programs.
             </p>
           </div>
