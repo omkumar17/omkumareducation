@@ -134,7 +134,7 @@ export default function Batch() {
           title="ICSE Class 10 Computer Applications Mastery Program"
           subtitle="Complete Board-Oriented Preparation at an Affordable Price"
           actualPrice="1000"
-          currentPrice="700"
+          currentPrice="800"
           type="per month"
           items={REGULAR_ITEMS}
           topics={REGULAR_TOPICS}

@@ -45,7 +45,7 @@ export default function BatchCard({
       <p className="mt-3 text-white/80">{subtitle}</p>
       <p className="mt-3 text-xl flex items-center  justify-center gap-2 text-white">
         <span>Course Price:</span>
-        <span className="flex items-center line-through  text-white">
+        <span className="flex items-center line-through  text-red-500">
           {actualPrice && (
             <>
               <IndianRupee className="w-4 h-4" />
@@ -54,13 +54,13 @@ export default function BatchCard({
           )}
         </span>
 
-        <span className="flex items-center font-semibold text-green-400">
+        <span className="flex items-center font-semibold text-white">
           <IndianRupee className="w-4 h-4" />
           {currentPrice}
         </span>
         
       </p>
-      <span className="flex items-center justify-center font-semibold text-green-400">
+      <span className="flex items-center justify-center font-semibold text-white">
           {type && `(${type})`}
         </span>
 
